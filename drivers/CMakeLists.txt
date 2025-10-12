@@ -1,0 +1,1 @@
+add_subdirectory_ifdef(CONFIG_REMOTE_CONTROL remote_control)

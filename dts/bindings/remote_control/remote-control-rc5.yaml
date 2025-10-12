@@ -1,0 +1,12 @@
+description: |
+  A remote control driver using the RC5 protocol.
+
+compatible: "remote-control-rc5"
+
+include: base.yaml
+
+properties:
+  pwms:
+    type: phandle-array
+    required: true
+    description: GPIO-controlled IR LED.

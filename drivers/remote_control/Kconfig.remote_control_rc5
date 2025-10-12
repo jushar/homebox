@@ -1,0 +1,8 @@
+config REMOTE_CONTROL_RC5
+	bool "RC5 protocol remote control"
+	default y
+	depends on DT_HAS_REMOTE_CONTROL_RC5_ENABLED
+	select GPIO
+	select PWM
+	help
+	  Enable this option to use the RC5 remote control driver.

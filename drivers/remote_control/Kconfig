@@ -1,0 +1,14 @@
+menuconfig REMOTE_CONTROL
+	bool "Remote control drivers"
+	help
+	  This option enables the remote control driver class.
+
+if REMOTE_CONTROL
+
+module = REMOTE_CONTROL
+module-str = remote_control
+source "subsys/logging/Kconfig.template.log_config"
+
+rsource "Kconfig.remote_control_rc5"
+
+endif # REMOTE_CONTROL
