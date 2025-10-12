@@ -7,7 +7,7 @@
 #include <zephyr/logging/log.h>
 #include <zephyr/drivers/pwm.h>
 
-#include <app/drivers/remote_control.h>
+#include <drivers/remote_control.h>
 
 LOG_MODULE_REGISTER(remote_control_rc5, CONFIG_REMOTE_CONTROL_LOG_LEVEL);
 

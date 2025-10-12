@@ -2,7 +2,7 @@
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 
-#include <app/drivers/remote_control.h>
+#include <drivers/remote_control.h>
 #include <zephyr/drivers/led.h>
 
 #include <app_version.h>
