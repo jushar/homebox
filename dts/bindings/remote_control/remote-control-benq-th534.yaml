@@ -1,0 +1,12 @@
+description: |
+  A remote control driver using the BenQ TH534 protocol.
+
+compatible: "remote-control-benq-th534"
+
+include: base.yaml
+
+properties:
+  pwms:
+    type: phandle-array
+    required: true
+    description: GPIO-controlled IR LED.

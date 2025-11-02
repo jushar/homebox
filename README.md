@@ -5,7 +5,7 @@ and exposes them for usage via Bluetooth (BLE) to be controlled by a set-top box
 
 * Philips sound system (IR Philips RC5 protocol)
 * BenQ projector (IR NEC protocol)
-* Ivolum/Celexon electric projector screen (OOK/ACK proprietary RF)
+* Ivolum/Celexon electric projector screen (OOK/ACK proprietary 433/315 MHz RF)
 
 ## Setup
 
@@ -31,3 +31,11 @@ TODO
 
 ## References
 * Sample app: https://github.com/zephyrproject-rtos/example-application/tree/main/drivers
+
+## Notes
+
+### SigRok CSV format string from oscilosscope
+```
+format=t,1a
+skiprows=4
+```

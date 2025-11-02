@@ -1,8 +1,14 @@
 / {
-	remote_control_audio: remote-control-audio {
+	/*remote_control_audio: remote-control-audio {
 		compatible = "remote-control-rc5";
 
 		pwms = <&pwm2 1 PWM_KHZ(36) PWM_POLARITY_NORMAL>;
+	};*/
+
+	remote_control_projector: remote-control-projector {
+		compatible = "remote-control-benq-th534";
+
+		pwms = <&pwm2 1 PWM_KHZ(38) PWM_POLARITY_NORMAL>;
 	};
 };
 

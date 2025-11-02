@@ -10,5 +10,6 @@ module-str = remote_control
 source "subsys/logging/Kconfig.template.log_config"
 
 rsource "Kconfig.remote_control_rc5"
+rsource "Kconfig.benq_th534"
 
 endif # REMOTE_CONTROL

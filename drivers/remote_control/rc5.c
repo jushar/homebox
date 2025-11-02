@@ -1,4 +1,3 @@
-#include "zephyr/sys/printk.h"
 #define DT_DRV_COMPAT remote_control_rc5
 
 #include <zephyr/device.h>
@@ -24,25 +23,6 @@ struct remote_control_rc5_data {
 struct remote_control_rc5_config {
 	struct pwm_dt_spec ir_led;
 };
-
-static int remote_control_rc5_send_bit(const struct pwm_dt_spec* pwm_dt, bool bit)
-{
-	// First half
-	int ret = pwm_set_pulse_dt(pwm_dt, !bit ? PWM_NSEC(8333) : 0);
-	if (ret < 0) {
-		return ret;
-	}
-	k_sleep(K_USEC(889)); // RC5 bit duration
-
-	// Second half
-	ret = pwm_set_pulse_dt(pwm_dt, bit ? PWM_NSEC(8333) : 0);
-	if (ret < 0) {
-		return ret;
-	}
-	k_sleep(K_USEC(889)); // RC5 bit duration
-
-	return 0;
-}
 
 static int remote_control_rc5_press_button(const struct device *dev, RemoteControlButton button)
 {

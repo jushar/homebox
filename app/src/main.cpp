@@ -13,7 +13,8 @@ int main()
 {
 	printk("Zephyr Example Application %s\n", APP_VERSION_STRING);
 
-	const struct device *remote_control = DEVICE_DT_GET(DT_NODELABEL(remote_control_audio));
+	//const struct device *remote_control = DEVICE_DT_GET(DT_NODELABEL(remote_control_audio));
+	const struct device *remote_control = DEVICE_DT_GET(DT_NODELABEL(remote_control_projector));
 	if (!device_is_ready(remote_control)) {
 		LOG_ERR("Remote control not ready");
 		return 0;
