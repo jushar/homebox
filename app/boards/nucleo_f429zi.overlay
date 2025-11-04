@@ -10,6 +10,12 @@
 
 		pwms = <&pwm2 1 PWM_KHZ(38) PWM_POLARITY_NORMAL>;
 	};
+
+	remote_control_screen: remote-control-screen {
+		compatible = "celexon-ev1527";
+		tx-gpios = <&gpiof 13 GPIO_ACTIVE_HIGH>;
+		otp-code = <0x3927E>;
+	};
 };
 
 &timers2 {

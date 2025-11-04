@@ -1,3 +1,4 @@
+#include "zephyr/device.h"
 #include "zephyr/sys/printk.h"
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
@@ -26,15 +27,24 @@ int main()
 		return 0;
 	}
 
+	const struct device* screen = DEVICE_DT_GET(DT_NODELABEL(remote_control_screen));
+	if (!device_is_ready(screen)) {
+		LOG_ERR("Screen not ready");
+		return 0;
+	}
+
+
 	while (1) {
 		led_on(led, 0);
 		k_sleep(K_MSEC(500));
 		led_off(led, 0);
 		
-		int ret = remote_control_press_button(remote_control, REMOTE_CONTROL_BUTTON_POWER);
-		printk("Pressing power button: %d\n", ret);
+		//int ret = remote_control_press_button(remote_control, REMOTE_CONTROL_BUTTON_POWER);
+		//printk("Pressing power button");
 
-		k_sleep(K_MSEC(500));
+		remote_control_press_button(screen, REMOTE_CONTROL_BUTTON_DOWN);
+
+		k_sleep(K_MSEC(100000));
 	}
 
 	return 0;

@@ -10,6 +10,9 @@ extern "C" {
 
 typedef enum {
 	REMOTE_CONTROL_BUTTON_POWER,
+	REMOTE_CONTROL_BUTTON_UP,
+	REMOTE_CONTROL_BUTTON_DOWN,
+	REMOTE_CONTROL_BUTTON_CANCEL,
 } RemoteControlButton;
 
 /** @brief Remote control driver class operations */

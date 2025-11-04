@@ -11,5 +11,6 @@ source "subsys/logging/Kconfig.template.log_config"
 
 rsource "Kconfig.remote_control_rc5"
 rsource "Kconfig.benq_th534"
+rsource "Kconfig.celexon_ev1527"
 
 endif # REMOTE_CONTROL

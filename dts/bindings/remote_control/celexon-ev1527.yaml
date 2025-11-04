@@ -1,0 +1,15 @@
+description: |
+  A remote control driver for the Celexon projector screen with an EV1527 OTP (One-Time Programmable) chip.
+
+compatible: "celexon-ev1527"
+
+include: base.yaml
+
+properties:
+  tx-gpios:
+    type: phandle-array
+    description: TX pin that is connected to the OOK TX module
+    required: true
+  otp-code:
+    type: int
+    description: OTP code of the EV1527 chip

@@ -1,0 +1,7 @@
+config REMOTE_CONTROL_CELEXON_EV1527
+	bool "Celexon EV1527 OTP remote control protocol"
+	default y
+	depends on DT_HAS_CELEXON_EV1527_ENABLED
+	select GPIO
+	help
+	  Enable this option to use the Celexon screen via the EV1527 OTP chip remote control driver.

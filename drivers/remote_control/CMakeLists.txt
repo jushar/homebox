@@ -1,3 +1,4 @@
 zephyr_library()
 zephyr_library_sources_ifdef(CONFIG_REMOTE_CONTROL_RC5 rc5.c)
 zephyr_library_sources_ifdef(CONFIG_REMOTE_CONTROL_BENQ_TH534 benq_th534.c)
+zephyr_library_sources_ifdef(CONFIG_REMOTE_CONTROL_CELEXON_EV1527 celexon_ev1527.c)
