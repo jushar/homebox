@@ -2,7 +2,6 @@ config REMOTE_CONTROL_BENQ_TH534
 	bool "BenQ TH534 IR NEC remote control protocol"
 	default y
 	depends on DT_HAS_REMOTE_CONTROL_BENQ_TH534_ENABLED
-	select GPIO
-	select PWM
+	select IR_LED_SEQUENCER
 	help
 	  Enable this option to use the BenQ TH534 IR remote control driver.

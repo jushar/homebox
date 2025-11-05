@@ -1,14 +1,19 @@
 / {
-	/*remote_control_audio: remote-control-audio {
-		compatible = "remote-control-rc5";
-
+	pwm_ir_led_sequencer: pwm-ir-led-sequencer {
+		compatible = "pwm-ir-led-sequencer";
 		pwms = <&pwm2 1 PWM_KHZ(36) PWM_POLARITY_NORMAL>;
-	};*/
+	};
+
+	remote_control_audio: remote-control-audio {
+		compatible = "remote-control-rc5";
+		
+		ir-led-sequencer = <&pwm_ir_led_sequencer>;
+	};
 
 	remote_control_projector: remote-control-projector {
 		compatible = "remote-control-benq-th534";
 
-		pwms = <&pwm2 1 PWM_KHZ(38) PWM_POLARITY_NORMAL>;
+		ir-led-sequencer = <&pwm_ir_led_sequencer>;
 	};
 
 	remote_control_screen: remote-control-screen {

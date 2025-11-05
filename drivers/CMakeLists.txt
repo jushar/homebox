@@ -1,1 +1,2 @@
+add_subdirectory_ifdef(CONFIG_IR_LED_SEQUENCER ir_led_sequencer)
 add_subdirectory_ifdef(CONFIG_REMOTE_CONTROL remote_control)

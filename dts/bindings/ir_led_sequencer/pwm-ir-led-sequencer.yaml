@@ -1,0 +1,11 @@
+description: A PWM-based IR LED sequencer
+
+compatible: "pwm-ir-led-sequencer"
+
+include: base.yaml
+
+properties:
+  pwms:
+    type: phandle-array
+    required: true
+    description: GPIO/PWM-controlled IR LED.

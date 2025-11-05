@@ -14,10 +14,23 @@ int main()
 {
 	printk("Zephyr Example Application %s\n", APP_VERSION_STRING);
 
-	//const struct device *remote_control = DEVICE_DT_GET(DT_NODELABEL(remote_control_audio));
-	const struct device *remote_control = DEVICE_DT_GET(DT_NODELABEL(remote_control_projector));
-	if (!device_is_ready(remote_control)) {
-		LOG_ERR("Remote control not ready");
+	const struct device* audio = DEVICE_DT_GET(DT_NODELABEL(remote_control_audio));
+	const struct device* projector = DEVICE_DT_GET(DT_NODELABEL(remote_control_projector));
+	const struct device* screen = DEVICE_DT_GET(DT_NODELABEL(remote_control_screen));
+
+
+	if (!device_is_ready(audio)) {
+		LOG_ERR("Audio not ready");
+		return 0;
+	}
+
+	if (!device_is_ready(projector)) {
+		LOG_ERR("Projector not ready");
+		return 0;
+	}
+
+	if (!device_is_ready(screen)) {
+		LOG_ERR("Screen not ready");
 		return 0;
 	}
 
@@ -27,24 +40,19 @@ int main()
 		return 0;
 	}
 
-	const struct device* screen = DEVICE_DT_GET(DT_NODELABEL(remote_control_screen));
-	if (!device_is_ready(screen)) {
-		LOG_ERR("Screen not ready");
-		return 0;
-	}
-
 
 	while (1) {
 		led_on(led, 0);
 		k_sleep(K_MSEC(500));
 		led_off(led, 0);
-		
-		//int ret = remote_control_press_button(remote_control, REMOTE_CONTROL_BUTTON_POWER);
-		//printk("Pressing power button");
 
+		k_sleep(K_MSEC(10000));
+		
+		remote_control_press_button(audio, REMOTE_CONTROL_BUTTON_POWER);
+		remote_control_press_button(projector, REMOTE_CONTROL_BUTTON_POWER);
 		remote_control_press_button(screen, REMOTE_CONTROL_BUTTON_DOWN);
 
-		k_sleep(K_MSEC(100000));
+		k_sleep(K_MSEC(5000));
 	}
 
 	return 0;

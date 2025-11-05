@@ -1,3 +1,4 @@
 menu "Drivers"
+rsource "ir_led_sequencer/Kconfig"
 rsource "remote_control/Kconfig"
 endmenu

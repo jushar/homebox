@@ -1,0 +1,2 @@
+zephyr_library()
+zephyr_library_sources_ifdef(CONFIG_PWM_IR_LED_SEQUENCER pwm_ir_led_sequencer.c)

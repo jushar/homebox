@@ -6,7 +6,7 @@ compatible: "remote-control-rc5"
 include: base.yaml
 
 properties:
-  pwms:
-    type: phandle-array
+  ir-led-sequencer:
+    type: phandle
     required: true
-    description: GPIO-controlled IR LED.
+    description: IR LED sequencer sending the bursts

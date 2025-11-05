@@ -1,0 +1,22 @@
+menuconfig IR_LED_SEQUENCER
+	bool "IR LED sequencer drivers"
+	help
+	  This option enables the IR LED sequencer driver class.
+
+if IR_LED_SEQUENCER
+
+module = IR_LED_SEQUENCER
+module-str = ir_led_sequencer
+source "subsys/logging/Kconfig.template.log_config"
+
+config PWM_IR_LED_SEQUENCER
+	bool "PWM IR LED sequencer"
+	default y
+	depends on DT_HAS_PWM_IR_LED_SEQUENCER_ENABLED
+	select GPIO
+	select PWM
+	help
+	  Enable this option to use the PWM IR LED sequencer driver.
+
+
+endif # IR_LED_SEQUENCER
